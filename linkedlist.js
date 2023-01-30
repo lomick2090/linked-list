@@ -115,16 +115,3 @@ function createNode(value, next = null) { return {
     value,
     next
 }};
-
-
-list = createList();
-
-list.append('value 1');
-list.append('value 2');
-list.prepend('value 0');
-
-console.log(list.toString())
-list.insertAt('value -1', 0)
-console.log(list.toString())
-list.removeAt(0)
-console.log(list.toString())
