@@ -12,9 +12,23 @@ function createList(head = null) { return {
             current.next = node
         }
     },
+    prepend: function prepend(value) {
+        node = createNode(value, this.head);
+        this.head = node;
+    },
+    size: function size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            node=node.next
+            count++
+        }
+        return count;
+    },
+    
 }};
 
-function createNode(value, next = null){ return {
+function createNode(value, next = null) { return {
     value,
     next
 }};
@@ -24,8 +38,7 @@ list = createList();
 
 list.append('value 1');
 list.append('value 2');
+list.prepend('value 0')
+console.log(list.size())
 
 console.log(list)
-
-
-
