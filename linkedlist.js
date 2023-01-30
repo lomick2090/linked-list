@@ -83,8 +83,23 @@ function createList(head = null) { return {
         } 
         string = string + `null`;
         return string;
+    },
+    insertAt: function insertAt(value, index) {
+        let current = this.head;
+        let node = createNode(value);
+        for (i=0; i < index-1; i++) {
+            current = current.next;
+        }
+        node.next = current.next;
+        current.next = node;
+    },
+    removeAt: function removeAt(index) {
+        let current = this.head;
+        for (i=0; i < index-1; i++) {
+            current = current.next
+        }
+        current.next = current.next.next;
     }
-
 }};
 
 function createNode(value, next = null) { return {
@@ -98,13 +113,9 @@ list = createList();
 list.append('value 1');
 list.append('value 2');
 list.prepend('value 0');
-console.log(list.size());
-console.log(list.tail());
-console.log(list.at(2));
-console.log(list.contains('value 3'))
-console.log(list.find('value 2'), list.find('value 3'))
-console.log(list.toString())
-list.pop()
-list.pop()
 
+console.log(list.toString())
+list.insertAt('value 1.5', 2)
+console.log(list.toString())
+list.removeAt(2)
 console.log(list.toString())
